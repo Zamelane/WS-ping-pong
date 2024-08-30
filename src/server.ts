@@ -1,4 +1,6 @@
-export default () => Bun.serve<string>({
+import type { IArg } from "./interfaces";
+
+export default (args: IArg) => Bun.serve<string>({
   fetch(req, server) {
     if (server.upgrade(req)) {
       return;
@@ -27,5 +29,6 @@ export default () => Bun.serve<string>({
         }
       }
     }
-  }
+  },
+  port: Number(args['port'])
 })
