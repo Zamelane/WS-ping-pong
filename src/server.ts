@@ -1,4 +1,4 @@
-Bun.serve<string>({
+export default () => Bun.serve<string>({
   fetch(req, server) {
     if (server.upgrade(req)) {
       return;
